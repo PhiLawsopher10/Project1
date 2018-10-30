@@ -1,7 +1,7 @@
 import os
 import filecmp
 #from dateutil.relativedelta import *
-#from datetime import date
+from datetime import date
 
 
 def getData(file):
@@ -34,8 +34,6 @@ def getData(file):
 	return dict
 
 
-
-
 def mySort(data,col):
 # Sort based on key/column
 #Input: list of dictionaries and col (key) to sort on
@@ -53,16 +51,19 @@ def classSizes(data):
 # descending order
 # [('Senior', 26), ('Junior', 25), ('Freshman', 21), ('Sophomore', 18)]
 
-	pass
 
-
+        pass 
 
 def findMonth(a):
 # Find the most common birth month form this data
 # Input: list of dictionaries
 # Output: Return the month (1-12) that had the most births in the data
+        
+        
+                                    
 
-    pass
+        
+        pass
 
 def mySortPrint(a,col,fileName):
 #Similar to mySort, but instead of returning single
@@ -70,8 +71,13 @@ def mySortPrint(a,col,fileName):
 # as fist,last,email
 #Input: list of dictionaries, col (key) to sort by and output file name
 #Output: No return value, but the file is written
+        sortedlist = sorted(a, key=lambda k:k[col])
+        for x in range(1):
+                sortedlist = sortedlist[x]
+                return(sortedlist["First"] + " " + sortedlist["Last"] + " " + sortedlist["Email"])
 
-	pass
+
+	
 
 def findAge(a):
 # def findAge(a):
