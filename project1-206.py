@@ -1,7 +1,7 @@
 import os
 import filecmp
-from dateutil.relativedelta import *
-from datetime import date
+#from dateutil.relativedelta import *
+#from datetime import date
 
 
 def getData(file):
@@ -10,14 +10,40 @@ def getData(file):
 #Ouput: return a list of dictionary objects where
 #the keys are from the first row in the data. and the values are each of the other rows
 
-	pass
+	infile = open(file,"r")
+	lines = infile.readlines()
+	infile.close()
+
+	dict = []
+
+	for line in lines:
+		pollDict = {}
+		values = line.split(",")
+		first = values[0]
+		last = values[1]
+		email = values[2]
+		class_year = values[3]
+		DOB = values[4]
+
+		pollDict["First"] = first
+		pollDict["Last"] = last
+		pollDict["Email"] = email
+		pollDict["Class"] = class_year
+		pollDict["DOB"] = DOB
+		dict.append(pollDict)
+	return dict
+
+
+
 
 def mySort(data,col):
 # Sort based on key/column
 #Input: list of dictionaries and col (key) to sort on
 #Output: Return the first item in the sorted list as a string of just: firstName lastName
-
-	pass
+        sortedlist = sorted(data, key=lambda k:k[col])
+        for x in range(1):
+                sortedlist = sortedlist[x]
+                return(sortedlist["First"] + " " + sortedlist["Last"])
 
 
 def classSizes(data):
@@ -30,12 +56,13 @@ def classSizes(data):
 	pass
 
 
+
 def findMonth(a):
 # Find the most common birth month form this data
 # Input: list of dictionaries
 # Output: Return the month (1-12) that had the most births in the data
 
-	pass
+    pass
 
 def mySortPrint(a,col,fileName):
 #Similar to mySort, but instead of returning single
